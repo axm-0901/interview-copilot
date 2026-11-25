@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #0b0e13;
+  color: #e7ebf3;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 两处径向光晕，作为整个应用的底噪 */
+.app-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(58rem 34rem at 12% -8%, rgba(22, 35, 63, 0.92), transparent 62%),
+    radial-gradient(46rem 30rem at 96% 4%, rgba(36, 27, 61, 0.78), transparent 60%),
+    radial-gradient(40rem 26rem at 60% 108%, rgba(20, 33, 56, 0.6), transparent 65%);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3340;
+  border-radius: 9px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4553;
+  background-clip: content-box;
+}
+
+::selection {
+  background: rgba(77, 141, 255, 0.28);
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(123, 92, 255, 0.75);
+  outline-offset: 2px;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* 细网格，用于空白面板的质感 */
+.grid-fade {
+  background-image: linear-gradient(#1a212c 1px, transparent 1px),
+    linear-gradient(90deg, #1a212c 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 20%, transparent 78%);
+}
+
+.grad-text {
+  background: linear-gradient(96deg, #4d8dff, #7b5cff 62%, #a06bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hairline {
+  background: linear-gradient(90deg, transparent, #232b38 18%, #232b38 82%, transparent);
+  height: 1px;
+}
+
+@layer components {
+  .card {
+    @apply rounded-panel border border-ink-line bg-ink-panel/90 shadow-[0_1px_0_0_rgba(255,255,255,.02)_inset];
+  }
+  .panel-sub {
+    @apply rounded-card border border-ink-line/80 bg-ink-sub;
+  }
+  .label {
+    @apply mb-1.5 block text-[12px] font-medium tracking-wide text-txt-mute;
+  }
+  .field {
+    @apply w-full rounded-btn border border-ink-line bg-[#0e131a] px-3 py-2 text-[13.5px] text-txt
+      placeholder:text-txt-mute/70 transition-colors
+      hover:border-ink-line2 focus:border-brand/60 focus:outline-none;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-ink-line bg-ink-sub/80 px-2.5 py-[3px]
+      text-[11.5px] font-medium text-txt-dim;
+  }
+  .kbd {
+    @apply inline-flex h-[19px] min-w-[19px] items-center justify-center rounded-[5px] border border-ink-line
+      bg-[#0f141b] px-1 font-mono text-[10.5px] text-txt-mute;
+  }
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #2a3340 transparent;
+}

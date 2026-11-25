@@ -1,0 +1,87 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/.next-dev/
+/out/
+/build
+
+# 安装包与更新包（体积大，走 Release 不放仓库）
+/dist
+/dist-*/
+/release
+/updates
+
+# misc
+.DS_Store
+*.pem
+*.pfx
+.vscode
+.idea
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# 本地验证产物
+/.shots
+/shot.mjs
+/shot-settings.mjs
+/electron-shot*.png
+/.tmp*
+/*.log
+build_log*.txt
+*_out.txt
+*_err.txt
+dev_log.txt
+tunnel_*.txt
+serveo*.txt
+https_proxy_*.txt
+cert_server_*.txt
+ssh_tunnel_*.txt
+
+# 个人材料与本地数据（不进仓库）
+/douyin
+/.workbuddy
+/.npm-cache
+/tools
+/desktop_data.json
+/resume_cmcc.txt
+/asr_hotwords_*.txt
+/create_interview_card.py
+/dump_app_data.py
+/read_desktop_data.py
+/sync_real_data.py
+/validate_interview_card.py
+/shot_mobile.py
+/test_turn.m4a
+/.mobile-data.json
+/*.docx
+/*.pdf
+/mobile_*.png
+/手机*.png
+/settings-shot.png
+/中国*.md
+/面试自我介绍_*.md
+
+# 编辑器与脚本备份
+*.bak
+
+# 本地启动脚本与临时页面
+/serveo*.html
+/tunnel_*.html
+/启动*.bat
+/build_mobile*.txt
+/docx_check.txt
